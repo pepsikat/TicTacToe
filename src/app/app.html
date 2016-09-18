@@ -1,0 +1,33 @@
+<header class="header">
+	<h1 class="title">Tic Tac Toe</h1>
+</header>
+
+<main class="content" ng-switch on="game.appState">
+	<div class="start" ng-switch-when="start">
+		<button class="btn" ng-click="game.newGame();">New game</button>
+	</div>
+
+	<div class="play" ng-switch-when="play">
+		<div class="game">
+			<div class="game__cell" ng-repeat="(num, value) in game.game track by $index">
+				<button class="game__btn" ng-click="game.turn(num);" ng-disabled="game.curTurn == '0'">{{value}}</button>
+			</div>
+		</div>
+		<div class="game__turn">TURN: {{game.curTurn}}</div>
+	</div>
+
+	<div class="finish" ng-switch-when="finish">
+		<div class="finish__text"> {{game.gameOverText}} </div>
+		<button class="btn" ng-click="game.changeAppState('start')">Start</button>
+		<button class="btn" ng-click="game.newGame();">New game</button>
+	</div>
+</main>
+
+<footer class="footer">
+	<div class="score">
+		<div class="score__name">you</div>
+		<div class="score__num" id="score-user">{{game.scoreYou}}</div> :
+		<div class="score__num" id="score-cpu">{{game.scoreCpu}}</div>
+		<div class="score__name">cpu</div>
+	</div>
+</footer>
