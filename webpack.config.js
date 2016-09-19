@@ -97,6 +97,7 @@ module.exports = function makeWebpackConfig() {
   if (isProd) {
     config.plugins.push(
       new webpack.NoErrorsPlugin(),
+      new webpack.optimize.UglifyJsPlugin({sourceMap: false, mangle: false}),
       new webpack.optimize.DedupePlugin(),
       new CopyWebpackPlugin([{from: __dirname + '/src/public'}])
     )

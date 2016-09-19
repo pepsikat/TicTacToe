@@ -1,21 +1,22 @@
 header.header
   h1.title Tic Tac Toe
-main.content(ng-switch='', on='game.appState')
-  .start(ng-switch-when='start')
-    button.btn(ng-click='game.newGame();') New game
-  .play(ng-switch-when='play')
-    .game
-      .game__cell(ng-repeat='(num, value) in game.game track by $index')
-        button.game__btn(ng-click='game.turn(num);', ng-disabled="game.curTurn == '0'") {{value}}
-    .game__turn TURN: {{game.curTurn}}
-  .finish(ng-switch-when='finish')
-    .finish__text  {{game.gameOverText}}
-    button.btn(ng-click="game.changeAppState('start')") Start
-    button.btn(ng-click='game.newGame();') New game
+main.content
+  .animate-switch-container(ng-switch='', on='game.appState')
+    .start.animate-switch(ng-switch-when='start')
+      button.btn(ng-click='game.newGame();') New game
+    .play.animate-switch(ng-switch-when='play')
+      .game
+        .game__cell(ng-repeat='(num, value) in game.game track by $index')
+          button.game__btn(ng-click='game.turn(num);', ng-disabled="game.curTurn == '0'") {{value}}
+    .finish.animate-switch(ng-switch-when='finish')
+      .finish__text  {{game.gameOverText}}
+      .buttons
+        button.btn(ng-click="game.changeAppState('start')") Start
+        button.btn(ng-click='game.newGame();') New game
 footer.footer
   .score
-    .score__name you
+    .score__name(ng-class="game.curTurn == 'X' ? 'active' : ''") You
     #score-user.score__num {{game.scoreYou}}
     |  :
     #score-cpu.score__num {{game.scoreCpu}}
-    .score__name cpu
+    .score__name(ng-class="game.curTurn == '0' ? 'active' : ''") CPU

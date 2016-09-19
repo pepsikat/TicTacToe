@@ -1,12 +1,13 @@
 angular = require('angular')
 ngCookies = require('angular-cookies')
+ngAnimate = require('angular-animate')
 
 require '../style/clear.less'
 require '../style/app.less'
 
 
 
-angular.module('ticTacToeApp', ['ngCookies'])
+angular.module('ticTacToeApp', ['ngCookies', 'ngAnimate'])
 .directive('game', ->
   {
     template: require('./app.jade')

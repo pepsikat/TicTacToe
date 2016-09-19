@@ -16,8 +16,6 @@ class GameCtrl {
   constructor($timeout, $cookies) {
      var self = this;
 
-    console.log($cookies);
-
     self.scoreYou = $cookies.get('scoreYou');
     if (isNaN(self.scoreYou)) self.scoreYou = 0;
 
@@ -95,7 +93,6 @@ class GameCtrl {
         var stateYou = self.playerState('X');
         var stateCpu = self.playerState('0');
 
-//        var changeState = Array(1, 2, 4, 8, 16 ,32 ,64 , 128, 256);
          var changeState = Array(256, 128, 64, 32, 16 ,8 ,4 , 2, 1);
 
         for (var i = 0; i < 9; i++) {
