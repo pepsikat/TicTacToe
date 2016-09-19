@@ -9,7 +9,7 @@ require '../style/app.less'
 angular.module('ticTacToeApp', ['ngCookies'])
 .directive('game', ->
   {
-    template: require('./app.html')
+    template: require('./app.jade')
     controller: 'GameCtrl'
     controllerAs: 'game'
   }

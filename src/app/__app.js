@@ -6,7 +6,7 @@ import '../style/app.less';
 
 let game = () => {
   return {
-    template: require('./app.html'),
+    template: require('./app.jade'),
     controller: 'GameCtrl',
     controllerAs: 'game'
   }

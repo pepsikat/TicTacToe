@@ -54,6 +54,10 @@ module.exports = function makeWebpackConfig() {
         loader: isTest ? 'null' : ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!postcss-loader')
       },
       {
+        test: /\.jade$/,
+        loader: 'jade'
+      },
+      {
         test: /\.less$/,
         loaders: ['style', 'css', 'less', 'postcss'],
       },
